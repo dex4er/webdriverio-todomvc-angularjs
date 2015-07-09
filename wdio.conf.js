@@ -1,5 +1,4 @@
 exports.config = {
-    
     //
     // ==================
     // Specify Test Files
@@ -28,9 +27,9 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        //browserName: 'chrome'
+        browserName: 'chrome'
         //browserName: 'firefox'
-        browserName: 'phantomjs'
+        //browserName: 'phantomjs'
     }],
     //
     // ===================
@@ -86,7 +85,7 @@ exports.config = {
     // Test reporter for stdout.
     // The following are supported: dot (default), spec and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporter: 'dot',
+    reporter: 'spec',
     //
     // =====
     // Hooks
@@ -116,16 +115,5 @@ exports.config = {
     // possible to defer the end of the process using a promise.
     onComplete: function() {
         // do something
-    },
-    //
-    // chai-as-promised
-    xbefore: function() {
-        var chai = require('chai');
-        var chaiAsPromised = require('chai-as-promised');
-
-        chai.use(chaiAsPromised);
-        expect = chai.expect;
-        chai.Should();
-        //chaiAsPromised.transferPromiseness = client.transferPromiseness;
     }
 };

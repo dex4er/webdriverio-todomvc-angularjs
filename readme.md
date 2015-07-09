@@ -42,6 +42,7 @@ The app uses [WebdriverIO](http://webdriver.io/) to run the tests located in the
 ```
 $ npm install
 $ http-server
+$ selenium-standalone install # for firefox and chrome
 $ selenium-standalone start # for firefox and chrome
 $ phantomjs --webdriver=4444 # for phantomjs
 $ wdio
