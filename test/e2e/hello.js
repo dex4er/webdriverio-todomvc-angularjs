@@ -13,24 +13,22 @@ before(function() {
 
 it('should load main page', function() {
     return browser
-        .url('http://localhost:8080/')
+        .url('/')
         .getTitle().should.eventually.match(/TodoMVC/);
 });
 
 it('should add new todo', function() {
     return browser
-        .url('http://localhost:8080/')
+        .url('/')
         .click('#new-todo')
         .keys('blabla\uE006')
         .isExisting('label=blabla').should.eventually.be.true;
 });
 
 it('should show active todos after click', function() {
-    return browser
-        .url('http://localhost:8080/')
+	return browser
+        .url('/')
         .click('=Active')
-        .url(function(err,res) {
-            assert.equal(undefined, err);
-            assert.strictEqual(res.value, 'http://localhost:8080/#/active');
-        });
+        .url().should.eventually.have.property('value')
+            .that.have.string('#/active');
 });
